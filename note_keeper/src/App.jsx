@@ -1,12 +1,22 @@
-import react,{ useState } from 'react'
+import react, { useState, createContext } from 'react'
+import Navbar from './component/Navbar'
+import Footer from './component/Footer'
+import CreateNote from './component/CreateNote'
+import Note from './component/Note'
+import { NoteProvider } from './component/NoteContext'
 
-function App() {
-  
+const App = () => {
+
+  const note = createContext();
+
   return (
-  <>
-   <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+    <>
+      <Navbar />
+      <NoteProvider>
+        <CreateNote />
+        <Note />
+        <Footer />
+      </NoteProvider>
     </>
   )
 }
