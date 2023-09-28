@@ -29,7 +29,7 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [Count (NoteKeeper)] <a name="about-project"></a>
+# 📖 [NoteKeeper] <a name="about-project"></a>
 
 **[NotKeeper]** is the perfect tool for anyone seeking a straightforward and efficient way to capture and manage their thoughts, tasks, and ideas. Whether you're a student, professional, or anyone in need of a digital notepad, Notekeeper has you covered. Start organizing your life and never let an important idea slip away with Notekeeper.
 
