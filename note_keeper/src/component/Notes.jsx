@@ -3,14 +3,11 @@ import Pagination from './Pagination'
 import Note from './Note'
 import { useNote } from './NoteContext'
 
-
-
 const Notes = () => {
     let notePerPage = 6;
-    const { note } = useNote();
+    const { note, updateNote } = useNote();
     const [currentPage, setCurrentPage] = useState(1);
     const totalPages = Math.ceil(note.length / notePerPage);
-
 
     const onPageChange = (pageNumber) => {
         setCurrentPage(pageNumber);
@@ -20,6 +17,7 @@ const Notes = () => {
         <div>
             <Note
                 notes={note}
+                updateNote={updateNote}
                 notePerPage={notePerPage}
                 currentPage={currentPage}
             />
