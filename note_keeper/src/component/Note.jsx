@@ -7,14 +7,20 @@ const Note = ({ notes, notePerPage, currentPage}) => {
     const {  updateNote } = useNote();
     const indexOfLastCard = currentPage * notePerPage;
     const indexOfFirstCard = indexOfLastCard - notePerPage;
-    const currentNotes = notes.slice(indexOfFirstCard, indexOfLastCard);
-    console.log(notePerPage,currentNotes,currentPage )
-  
+    const currentNotes = notes.slice(indexOfFirstCard, indexOfLastCard);  
 
     const removeEvent = (index) => {
         let updatenote = [...notes];
-        updatenote = updatenote.filter((data, indx) => indx !== index);
-        updateNote(updatenote);
+        updatenote = updatenote.filter((data, indx) => indx+1 !== index);
+        console.log(updatenote);
+        let updatearray = updatenote.map((obj, index) => {
+            return {
+              ...obj,
+              id: index + 1,
+            };
+          });
+        updateNote(updatearray);
+
     }
 
     return (
