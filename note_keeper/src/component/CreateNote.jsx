@@ -6,8 +6,10 @@ const CreateNote = () => {
     const [expand, setExpand] = useState(false);
     const { note, updateNote } = useNote();
     const [newnote, setNewnote] = useState({
+        id: (note.length + 1),
         title: '',
-        content: ''
+        content: '',
+        pinned: false
     })
 
     const InputEvent = (e) => {
@@ -22,18 +24,15 @@ const CreateNote = () => {
 
     const addEvent = (e) => {
         e.preventDefault();
-        if (newnote.title.trim() !== '') {
-            let updatenote = [...note, newnote]
-            updateNote(updatenote);
-            setNewnote({
-                title: '',
-                content: ''
-            })
-            setExpand(false)
-        }
-        else {
-            console.log('Please Add Title')
-        }
+        let updatenote = [...note, newnote]
+        updateNote(updatenote);
+        setNewnote({
+            id: (updatenote.length + 1),
+            title: '',
+            content: '',
+            pinned: false
+        })
+        setExpand(false);
     }
 
     return (
