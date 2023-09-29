@@ -8,9 +8,9 @@ const Note = ({ notes, updateNote, notePerPage, currentPage }) => {
     const indexOfFirstCard = indexOfLastCard - notePerPage;
     const currentNotes = notes.slice(indexOfFirstCard, indexOfLastCard);
 
-    const removeEvent = (index) => {
+    const removeEvent = (id) => {
     let updatenote = [...notes];
-        updatenote = updatenote.filter((data) => data.id !== index);
+        updatenote = updatenote.filter((data) => data.id !== id);
         let updatearray = updatenote.map((obj, index) => {
             return {
                 ...obj,
@@ -35,9 +35,9 @@ const Note = ({ notes, updateNote, notePerPage, currentPage }) => {
     return (
         <>
             <div className='p-5 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8 '>
-                {currentNotes.map((item, index) => {
+                {currentNotes.map((item) => {
                     return (
-                        <div key={index} className='my-4 border self-start h-auto border-gray-900/10 shadow-2xl p-4'>
+                        <div key={item.id} className='my-4 border self-start h-auto border-gray-900/10 shadow-2xl p-4'>
                             <h1 className="font-bold ">{item.title}</h1>
                             <br />
                             <p className='font-bold text-gray-500'>{item.content} </p>
