@@ -6,7 +6,7 @@ const CreateNote = () => {
     const [expand, setExpand] = useState(false);
     const { note, updateNote } = useNote();
     const [newnote, setNewnote] = useState({
-        id: (note.length + 1),
+        id: 0,
         title: '',
         content: '',
         pinned: false
@@ -17,6 +17,7 @@ const CreateNote = () => {
             const { name, value } = e.target;
             return {
                 ...prevnote,
+                id:(note.length+1),
                 [name]: value
             }
         });
@@ -27,7 +28,7 @@ const CreateNote = () => {
         let updatenote = [...note, newnote]
         updateNote(updatenote);
         setNewnote({
-            id: (updatenote.length + 1),
+            id: 0,
             title: '',
             content: '',
             pinned: false
